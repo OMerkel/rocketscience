@@ -1,13 +1,21 @@
 
 Logos and trademarks belong to their respective owners.
 
-The MIT License (MIT)
-
-Copyright (c) 2014, Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de
+Copyright (c) 2014
 Rocket Science
+@author Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de
+All rights reserved.
 
 Contributors:
 * Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de
+
+If not otherwise stated all graphics (indepedend of its format) are licensed under
+    http://creativecommons.org/licenses/by-sa/4.0/
+    Creative Commons Attribution-ShareAlike 4.0 International License.
+
+Source code including HMTL, Javascript, CSS is under MIT License
+
+The MIT License (MIT)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
