@@ -1,0 +1,23 @@
+CACHE MANIFEST
+# v0.1
+AUTHORS
+css/rocketscience.css
+img/icons/cc-by-sa-88x31.png
+img/icons/favicon.ico
+img/icons/rocketscience-120.png
+img/icons/rocketscience-128.png
+img/icons/rocketscience-16.png
+img/icons/rocketscience-32.png
+img/icons/rocketscience-48.png
+img/icons/rocketscience-60.png
+img/icons/rocketscience-64.png
+img/icons/rocketscience-90.png
+img/icons/rocketscience256.png
+img/icons/rocketscience512.png
+img/icons/rocketscience600.png
+index.html
+js/capsulephysics.js
+js/hmi.js
+js/moonlander.js
+LICENSE.txt
+MIT-LICENSE.txt
