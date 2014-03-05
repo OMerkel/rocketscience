@@ -8,3 +8,10 @@ function submitBurnRate() {
   hmi.submitBurnRate();
   return false;
 }
+
+function restart() {
+  hmi = new Hmi();
+  return false;
+}
+
+$('#new').click(restart);
