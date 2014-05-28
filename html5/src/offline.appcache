@@ -1,28 +1,23 @@
 CACHE MANIFEST
-# v0.1
-AUTHORS
+# v1.1
 css/rocketscience.css
 img/icons/cc-by-nc-nd-80x15.png
 img/icons/cc-by-sa-88x31.png
 img/icons/favicon.ico
-img/icons/rocketscience-120.png
-img/icons/rocketscience-128.png
 img/icons/rocketscience-16.png
 img/icons/rocketscience-32.png
 img/icons/rocketscience-48.png
 img/icons/rocketscience-60.png
 img/icons/rocketscience-64.png
 img/icons/rocketscience-90.png
-img/icons/rocketscience256.png
-img/icons/rocketscience512.png
+img/icons/rocketscience-120.png
+img/icons/rocketscience-128.png
+img/icons/rocketscience-256.png
 img/icons/rocketscience600.png
 img/oliver-140305.jpg
-index.html
 js/capsulephysics.js
 js/hmi.js
 js/moonlander.js
-LICENSE.txt
-MIT-LICENSE.txt
 thirdparty/jquery-1.11.0.js
 thirdparty/jquery-favicon.ico
 thirdparty/jquery.mobile-1.4.2/demos/favicon.ico
@@ -31,3 +26,7 @@ thirdparty/jquery.mobile-1.4.2/jquery.mobile-1.4.2.css
 thirdparty/jquery.mobile-1.4.2/jquery.mobile-1.4.2.js
 thirdparty/jquery.mobile-1.4.2/MIT-LICENSE.txt
 thirdparty/MIT-LICENSE.txt
+AUTHORS
+index.html
+LICENSE.txt
+MIT-LICENSE.txt
