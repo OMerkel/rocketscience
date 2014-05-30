@@ -18,7 +18,7 @@ img/oliver-140305.jpg
 js/capsulephysics.js
 js/hmi.js
 js/moonlander.js
-thirdparty/jquery-1.11.0.js
+thirdparty/jquery-1.11.1.js
 thirdparty/jquery-favicon.ico
 thirdparty/jquery.mobile-1.4.2/demos/favicon.ico
 thirdparty/jquery.mobile-1.4.2/images/ajax-loader.gif
