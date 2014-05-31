@@ -1,4 +1,4 @@
- ![Rocket Science Icon](/html5/src/img/icons/rocketscience256.png) Rocket Science
+<img alt="Rocket Science Icon" src="/html5/src/img/icons/rocketscience-128.png" /> Rocket Science
 =============
 
 * _Start an online_ __Rocket Science__ _session on_ http://omerkel.github.io/rocketscience/html5/src/
