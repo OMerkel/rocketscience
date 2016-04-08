@@ -2,6 +2,10 @@
 =============
 
 * _Start an online_ __Rocket Science__ _session on_ http://omerkel.github.io/rocketscience/html5/src
+* <em>Also published in</em> <a href="https://marketplace.firefox.com/app/ucthello"><img align="middle" width="150px" src="https://marketplace.cdn.mozilla.net/media/fireplace/img/pretty/marketplace_logo.png" /></a>
+* <em>Runs in various browsers on</em>
+    * <em>desktop systems like BSDs, Linux, Win, MacOS and</em>
+    * <em>mobile platforms like Android, FirefoxOS, iOS.</em>
 
 __Keywords, Categories__ _Physics Simulation, Rocket Science, Lunar Lander, Moon Lander_
 
