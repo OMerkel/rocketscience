@@ -11,6 +11,7 @@ function submitBurnRate() {
 
 function restart() {
   hmi = new Hmi();
+  $( '#left-panel' ).panel( 'close' );
   return false;
 }
 

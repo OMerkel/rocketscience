@@ -3,17 +3,16 @@
   "name": "Rocket Science",
   "description": "Rocket Science - physics simulation",
   "launch_path": "/rocketscience/html5/src/index.html",
-  "appcache_path": "/rocketscience/html5/src/offline.appcache",
   "icons": {
-    "16": "/rocketscience/html5/src/img/icons/rocketscience-16.png",
-    "32": "/rocketscience/html5/src/img/icons/rocketscience-32.png",
-    "48": "/rocketscience/html5/src/img/icons/rocketscience-48.png",
-    "60": "/rocketscience/html5/src/img/icons/rocketscience-60.png",
-    "64": "/rocketscience/html5/src/img/icons/rocketscience-64.png",
-    "90": "/rocketscience/html5/src/img/icons/rocketscience-90.png",
-    "120": "/rocketscience/html5/src/img/icons/rocketscience-120.png",
-    "128": "/rocketscience/html5/src/img/icons/rocketscience-128.png",
-    "256": "/rocketscience/html5/src/img/icons/rocketscience-256.png"
+    "16": "/rocketscience/html5/src/img/icons/rocketscience16.png",
+    "32": "/rocketscience/html5/src/img/icons/rocketscience32.png",
+    "48": "/rocketscience/html5/src/img/icons/rocketscience48.png",
+    "60": "/rocketscience/html5/src/img/icons/rocketscience60.png",
+    "64": "/rocketscience/html5/src/img/icons/rocketscience64.png",
+    "90": "/rocketscience/html5/src/img/icons/rocketscience90.png",
+    "120": "/rocketscience/html5/src/img/icons/rocketscience120.png",
+    "128": "/rocketscience/html5/src/img/icons/rocketscience128.png",
+    "256": "/rocketscience/html5/src/img/icons/rocketscience256.png"
   },
   "developer": {
     "name": "Oliver Merkel",
