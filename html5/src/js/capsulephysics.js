@@ -2,30 +2,26 @@
 // @author Oliver Merkel, <Merkel(dot)Oliver(at)web(dot)de>
 //
 
-function Capsule(altitude, velocity, massFuel, massCapsuleEmpty) {
-  this.ALTITUDE = 'altitude';
-  this.VELOCITY = 'velocity';
-  this.MASSFUEL = 'mass fuel';
-  this.MASSCAPSULEEMPTY = 'mass capsule empty';
-
+function Capsule( state ) {
   this.gravitationalAcceleration = 1.622; // Moon, meter per square second
   /*
    * Gravity is relative to the height of an object. With the given altitude
    * range it is quite clear that this simulation is enormously simplifying
    * this aspect.
    */
-  this.state = new Array();
-  this.state[this.ALTITUDE] = altitude;
-  this.state[this.VELOCITY] = velocity;
-  this.state[this.MASSFUEL] = massFuel;
-  this.state[this.MASSCAPSULEEMPTY] = massCapsuleEmpty;
+  this.state = {
+    altitude: state.altitude, // meter
+    velocity: state.velocity, // meter per second
+    massFuel: state.massFuel, // lb
+    massCapsuleEmpty: state.massCapsuleEmpty // lb
+  };
 }
 
 Capsule.prototype.getMassTotal = function() {
-  return this.state[this.MASSCAPSULEEMPTY] + this.state[this.MASSFUEL];
+  return this.state.massCapsuleEmpty + this.state.massFuel;
 }
 
-Capsule.prototype.iterate = function(burnRate, durationFullIteration) {
+Capsule.prototype.iterate = function( burnRate, durationFullIteration ) {
   var durationEngineBurning = this.getDurationEngineBurning(
     durationFullIteration, burnRate);
   var durationMovement = durationFullIteration;
@@ -55,19 +51,19 @@ Capsule.prototype.iterate = function(burnRate, durationFullIteration) {
     durationEngineBurning, durationMovement);
   var massFuel = this.renderMassFuel(burnRate, durationEngineBurning);
 
-  this.state[this.ALTITUDE] = altitude;
-  this.state[this.VELOCITY] = velocity;
-  this.state[this.MASSFUEL] = massFuel;
+  this.state.altitude = altitude;
+  this.state.velocity = velocity;
+  this.state.massFuel = massFuel;
 
   return durationMovement;
 };
 
 Capsule.prototype.getDurationEngineBurning = function(durationFullIteration, burnRate) {
-  var durationEngineBurning = this.state[this.MASSFUEL] >= durationFullIteration * burnRate ?
-    durationFullIteration : this.state[this.MASSFUEL] / burnRate;
+  var durationEngineBurning = this.state.massFuel >= durationFullIteration * burnRate ?
+    durationFullIteration : this.state.massFuel / burnRate;
   /*
   var message = 0 == burnRate ? 'Going into free fall with burn rate zero.' :
-    0 == this.state[this.MASSFUEL] ? 'Going into free fall since out of fuel.' :
+    0 == this.state.massFuel ? 'Going into free fall since out of fuel.' :
     'Burn rate is ' + burnRate + ' lb fuel per second intended for the following ' +
       durationEngineBurning + ' seconds.';
   console.log(message);
@@ -76,14 +72,14 @@ Capsule.prototype.getDurationEngineBurning = function(durationFullIteration, bur
 };
 
 Capsule.prototype.renderMassFuel = function(burnRate, durationEngineBurning) {
-  var fuel = this.state[this.MASSFUEL] - burnRate * durationEngineBurning;
+  var fuel = this.state.massFuel - burnRate * durationEngineBurning;
   // console.log('Current fuel level is ' + fuel + ' lb.');
   return fuel;
 };
 
 Capsule.prototype.renderVelocity = function(burnRate,
   durationEngineBurning, durationMovement) {
-  var velocityStartIteration = this.state[this.VELOCITY];
+  var velocityStartIteration = this.state.velocity;
   var massChangeRatio = burnRate * durationEngineBurning / this.getMassTotal();
   var velocityChangeEnvironment = this.gravitationalAcceleration * durationMovement;
 
@@ -98,8 +94,8 @@ Capsule.prototype.renderVelocity = function(burnRate,
 
 Capsule.prototype.renderAltitude = function(burnRate,
   durationEngineBurning, durationMovement) {
-  var altitudeStartIteration = this.state[this.ALTITUDE];
-  var velocityStartIteration = this.state[this.VELOCITY];
+  var altitudeStartIteration = this.state.altitude;
+  var velocityStartIteration = this.state.velocity;
   var massChangeRatio = burnRate * durationEngineBurning / this.getMassTotal();
   var altitudeChangeEnvironment = -velocityStartIteration * durationMovement -
     this.gravitationalAcceleration * durationMovement * durationMovement / 2;
