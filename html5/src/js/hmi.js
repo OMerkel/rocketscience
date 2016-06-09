@@ -43,26 +43,32 @@ Hmi.prototype.initialize = function() {
   this.elementInputBurnRate = document.getElementById('burnrate');
 };
 
-Hmi.prototype.validateBurnRate = function( delta ) {
-  var burnRate = Math.round(Number(this.elementInputBurnRate.value)) + delta;
+Hmi.prototype.adaptBurnRate = function( delta ) {
+  var previous = this.elementInputBurnRate.value;
+  var burnRate = Math.round(Number(previous)) + delta;
   burnRate = burnRate > 200 ? 200 : burnRate < 0 ? 0 : burnRate;
-  this.elementInputBurnRate.value = burnRate;
+  var sameValue = ('' + burnRate) == ('' + previous);
+  if ( !sameValue ) {
+    this.elementInputBurnRate.value = burnRate;
+  }
+  return { sameValue: sameValue,
+    previousValue: '' + previous, newValue: '' + burnRate };
 };
 
 Hmi.prototype.decreaseBurnRate = function() {
-  this.validateBurnRate( -1 );
+  this.adaptBurnRate( -1 );
 };
 
 Hmi.prototype.increaseBurnRate = function() {
-  this.validateBurnRate( 1 );
+  this.adaptBurnRate( 1 );
 };
 
 Hmi.prototype.submitBurnRate = function() {
-  this.validateBurnRate( 0 );
   var result = true;
+  var ret = this.adaptBurnRate( 0 );
   if (this.lander.state.altitude > 0) {
     var burnRate = Number(this.elementInputBurnRate.value);
-    if (0 <= burnRate && burnRate <= 200) {
+    if ( ret.sameValue && 0 <= burnRate && burnRate <= 200) {
       var granularity=1000; // amount of simulated coarse samples per turn
       for(var i=0; i<granularity; ++i) {
         var simulatedTime = this.lander.iterate(burnRate,
@@ -72,7 +78,9 @@ Hmi.prototype.submitBurnRate = function() {
       this.update( '' );
     }
     else {
-      this.update( this.message.validinput );
+      var msg = 'Adapted your invalid entry. Value changed to \'' +
+        ret.newValue + '\' without any further action. ' + this.message.validinput
+      this.update( msg );
       result = false;
     }
   }
