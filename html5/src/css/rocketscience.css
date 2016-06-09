@@ -40,6 +40,16 @@ table {
   max-width: 800px;
 }
 
+button {
+  max-width:30%;
+  width:30%;
+}
+
+input {
+  max-width:60%;
+  width:60%;
+}
+
 #whiteboard {
   max-width: 400px;
   float:right;

@@ -8,6 +8,8 @@ Hmi.prototype.init = function() {
   this.initialize();
   $('#new').click( this.restart.bind(this) );
   $('#submitburnrate').click( this.submitBurnRate.bind(this) );
+  $('#decreaseburnrate').click( this.decreaseBurnRate.bind(this) );
+  $('#increaseburnrate').click( this.increaseBurnRate.bind(this) );
   var $window = $(window);
   $window.resize( this.resize.bind( this ) );
   $window.resize();
@@ -37,17 +39,30 @@ Hmi.prototype.initialize = function() {
       'maneuver was performed with the service module reaction control system. ' +
       'Undocking the lunar module on time. Performing descent orbit insertion maneuver ' +
       'now. Good luck! Now it is your turn. ' };
-  this.regexpPattern = [ /^(\d|[1-9]\d|1\d\d|200)$/ ,
-                         /^(0|[1-9]\d*)$/ ];
-  this.update(this.message.initial + ' ' + this.message.validinput);
+  this.update(this.message.initial + this.message.validinput);
   this.elementInputBurnRate = document.getElementById('burnrate');
 };
 
+Hmi.prototype.validateBurnRate = function( delta ) {
+  var burnRate = Math.round(Number(this.elementInputBurnRate.value)) + delta;
+  burnRate = burnRate > 200 ? 200 : burnRate < 0 ? 0 : burnRate;
+  this.elementInputBurnRate.value = burnRate;
+};
+
+Hmi.prototype.decreaseBurnRate = function() {
+  this.validateBurnRate( -1 );
+};
+
+Hmi.prototype.increaseBurnRate = function() {
+  this.validateBurnRate( 1 );
+};
+
 Hmi.prototype.submitBurnRate = function() {
+  this.validateBurnRate( 0 );
   var result = true;
   if (this.lander.state.altitude > 0) {
-    var burnRate = this.elementInputBurnRate.value;
-    if (burnRate.match(this.regexpPattern[0])) {
+    var burnRate = Number(this.elementInputBurnRate.value);
+    if (0 <= burnRate && burnRate <= 200) {
       var granularity=1000; // amount of simulated coarse samples per turn
       for(var i=0; i<granularity; ++i) {
         var simulatedTime = this.lander.iterate(burnRate,

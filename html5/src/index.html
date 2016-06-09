@@ -92,13 +92,16 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   </thead>
   <tbody>
   <tr>
-    <td width='40%'><span id='fuel'>17000</span>&nbsp;lb</td>
-    <td width='60%'>
-      <input data-role='none' id='burnrate' type='number'
-        value='0' size='3' maxlength='3' min='0' max='200' step='1'
-        class='ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-focus' />
-      lb/sec<br />
+    <td width='30%'><span id='fuel'>17000</span>&nbsp;lb</td>
+    <td width='70%'>
+      <center>
+      <input data-role='none'
+        id='burnrate' type='number' value='0' size='3' maxlength='3'
+        min='0' max='200' step='1' />lb/sec<br />
+      <button data-role='none' id='decreaseburnrate'>-</button>
+      <button data-role='none' id='increaseburnrate'>+</button>
       <button data-role='none' id='submitburnrate'>go</button>
+      </center>
     </td>
   </tr>
   </tbody>
