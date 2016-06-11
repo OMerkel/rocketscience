@@ -1,7 +1,7 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "name": "Rocket Science",
-  "description": "Rocket Science - physics simulation",
+  "description": "Rocket Science - Physics simulation",
   "launch_path": "/index.html",
   "icons": {
     "16": "/img/icons/rocketscience16.png",
