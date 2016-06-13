@@ -142,7 +142,27 @@ Hmi.prototype.resize = function () {
   var innerHeight = window.innerHeight,
       innerWidth = window.innerWidth;
   $('.gnuPlot').css({ 'max-height': 0.75 * innerHeight });
-  $('#whiteboard').css({ 'max-height': 0.5 * innerHeight, 'max-width': 0.33 * innerWidth });
+  $('#whiteboard').css({ 'max-height': 0.5 * innerHeight, 'max-width': 0.33 * innerWidth })
+  var offsetHeight = 64,
+    availableWidth = innerWidth - 32,
+    availableHeight = innerHeight - offsetHeight;
+  var size = Math.min(availableWidth, availableHeight) / 10;
+  var minSize = 38;
+  size = size < minSize ? minSize : size;
+  var maxSize = 100;
+  size = maxSize < size ? maxSize : size;
+  $('#customMenu').css({
+    'width': size+'px', 'height': size+'px',
+    'background-size': size+'px ' + size+'px',
+  });
+  $('#customBackPhysics').css({
+    'width': size+'px', 'height': size+'px',
+    'background-size': size+'px ' + size+'px',
+  });
+  $('#customBackAbout').css({
+    'width': size+'px', 'height': size+'px',
+    'background-size': size+'px ' + size+'px',
+  });
 };
 
 $( (new Hmi()).init() );

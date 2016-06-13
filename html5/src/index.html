@@ -13,19 +13,17 @@
   <meta name='DC.rights' content="
 See file named LICENSE being part of the repository.
 
-Logos, brands, and trademarks belong to their respective owners.
-
 Copyright (c) 2016
-@author Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de
+@author Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de.
 All rights reserved.
 
-If not otherwise stated all graphics (independent of its format) are licensed under
-    http://creativecommons.org/licenses/by-nc-sa/4.0
-    Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+Logos, brands, and trademarks belong to their respective owners.
 
-Source code including HMTL, Javascript, CSS is under MIT License
+All source code also including code parts written in HMTL, Javascript, CSS is under MIT License.
 
 The MIT License (MIT)
+
+Copyright (c) 2016 Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the &quot;Software&quot;), to deal in
@@ -43,13 +41,19 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+If not otherwise stated all graphics (independent of its format) are licensed under
+    http://creativecommons.org/licenses/by-nc-sa/4.0
+    Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 " />
   <title>Rocket Science - Moon Lander</title>
-  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+  <meta name='apple-mobile-web-app-capable' content='yes' />
+  <meta name='apple-mobile-web-app-status-bar-style' content='black' />
+  <link rel='apple-touch-icon' href='img/icons/rocketscience128.png' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
     name='viewport' />
-  <link rel='stylesheet' type='text/css'
-    href='thirdparty/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css' />
-  <link rel='stylesheet' type='text/css' href='css/rocketscience.css'>
+  <link rel='stylesheet' type='text/css' href='thirdparty/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css' />
+  <link rel='stylesheet' type='text/css' href='css/index.css' />
   <script src='thirdparty/jquery-2.2.4.js' type='text/javascript'></script>
   <script src='thirdparty/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js' type='text/javascript'></script>
   <script type='text/javascript' src='js/capsulephysics.js'></script>
@@ -59,7 +63,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 <div data-role='page' data-theme='a' id='simulation-page'>
   <div data-role='header' data-position='fixed'>
     <center>Rocket Science</center>
-    <a href='#left-panel' data-icon='bars' data-iconpos='notext'>Navigation</a>
+    <a href='#left-panel' id='customMenu' class='customMenu'
+      data-icon='custom' data-iconpos='notext'>Menu</a>
   </div><!-- /header -->
   <div role='main' class='ui-content'>
     <noscript>
@@ -119,18 +124,19 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       data-icon='false' data-global-nav='demos' class='jqm-list'>
       <li data-icon='back' data-rel='close'><a href='#'>Back</a></li>
       <li data-role='list-divider'>&nbsp;</li>
-      <li data-icon='star' ><a id='new' href='#'>New</a></li>
-      <li data-icon='action' ><a href='#physics-page'
-        data-transition='pop'>Physics Simulation</a></li>
-      <li data-icon='info' ><a href='#legal-page'
-        data-transition='pop'>Legal</a></li>
+      <li data-icon='star'><a id='new'>New</a></li>
+      <li data-role='list-divider'>&nbsp;</li>
+      <li data-icon='action' ><a href='#physics-page' data-rel='page'
+        data-transition='pop'>Physics Simulation&#8230;</a></li>
+      <li data-icon='info' ><a href='#about-page' data-rel='page'
+        data-transition='pop'>About&#8230;</a></li>
     </ul>
   </div><!-- /panel -->
 </div>
 <div data-role='page' data-theme='a' id='physics-page'>
   <div data-role='header'>
-    <a href='#' data-rel='back'
-      class='ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-corner-all'>Back</a>
+    <a href='#' data-rel='back' id='customBackPhysics'
+      class='customBack ui-btn ui-icon-custom ui-btn-icon-right ui-btn-icon-notext ui-corner-all'>Back</a>
     <h4>Physics Sim</h4>
   </div><!-- /header -->
   <div role='main' class='ui-content'>
@@ -426,76 +432,78 @@ experience anyway.</p>
       data-rel='back'>Back</a>
   </div><!-- /content -->
 </div><!-- /page -->
-<div data-role='page' data-theme='a' id='legal-page'>
+<div data-role='page' data-theme='a' id='about-page'>
   <div data-role='header'>
-    <a href='#' data-rel='back'
-      class='ui-btn ui-icon-delete ui-btn-icon-right ui-btn-icon-notext ui-corner-all'>Back</a>
-    <h4>About</h4>
+    <a href='#' data-rel='back' id='customBackAbout'
+      class='customBack ui-btn ui-icon-custom ui-btn-icon-right ui-btn-icon-notext ui-corner-all'>Back</a>
+    <h4>About Rocket Science</h4>
   </div><!-- /header -->
   <div role='main' class='ui-content'>
     <figure class='diagram' style='float: right;'>
       <img src='img/oliver-140305.jpg'>
-      <figcaption>Oliver Merkel,
-      <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/4.0'>
-      <img alt='Creative Commons License'
-        style='border-width: 0; width: 80px; border-radius: 0;'
-        src='img/icons/cc-by-nc-nd-80x15.png' /></a><br />
-        Image is licensed under a <a rel='license'
-        href='http://creativecommons.org/licenses/by-nc-nd/4.0'>Creative
-        Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
-      </figcaption>
+      <figcaption>Oliver Merkel, <a rel='license'
+        href='http://creativecommons.org/licenses/by-nc-nd/4.0'
+        target='_blank'>cc-by-nc-nd 4.0</a>.</figcaption>
     </figure>
-    <h2>Legal</h2>
-    <p>Logos, brands, and trademarks belong to their respective owners.</p>
-    <h3>Rocket Science</h3>
+    <br />
+    <h3>Legal</h3>
     <p>Copyright (c) 2016<br />
-    <b>@author</b> <em>Oliver Merkel</em>, Merkel(dot)Oliver(at) web(dot)de<br />
-    All rights reserved.</p>
-    <p>If not otherwise stated all graphics (independent of its format) are
-    licensed under a <a rel='license' target='_blank'
-    href='http://creativecommons.org/licenses/by-nc-sa/4.0'>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-    <a rel='license' href='http://creativecommons.org/licenses/by-nc-sa/4.0'
-     target='_blank'><img alt='Creative Commons License' style='border-width:0'
-    src='img/icons/cc_by_nc_sa.png' /></a>
-    <p>Source code including HMTL, Javascript, CSS is under MIT License</p>
-    <h3>The MIT License (MIT)</h3>
+    <b>@author</b> <em>Oliver Merkel</em>, Merkel(dot)Oliver(at) web(dot)de.<br />
+    All rights reserved.<br />
+    Logos, brands, and trademarks belong to their respective owners.</p>
+    <p>All source code also including code parts written in HMTL, Javascript, CSS is under MIT License.</p>
+    <h4>The MIT License (MIT)</h4>
+    <p>Copyright (c) 2016 Oliver Merkel, Merkel(dot) Oliver(at) web(dot)de</p>
+
     <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
     this software and associated documentation files (the &quot;Software&quot;), to deal in
     the Software without restriction, including without limitation the rights to
     use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
     the Software, and to permit persons to whom the Software is furnished to do so,
     subject to the following conditions:</p>
+
     <p>The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.<p>
+    copies or substantial portions of the Software.</p>
+
     <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
     IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
     FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
     COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
     IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
     CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+    <p>If not otherwise stated all graphics (independent of its format) are licensed under
+      <br /><a rel='license' href='http://creativecommons.org/licenses/by-nc-sa/4.0'
+      target='_blank'><img alt='Creative Commons License' style='border-width:0'
+      src='img/icons/cc_by_nc_sa.png' /></a><br />
+      <a rel='license' href='http://creativecommons.org/licenses/by-nc-sa/4.0'
+      target='_blank'>Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+      International License</a>.
+    </p>
+
     <div data-role='collapsible-set' data-theme='c' data-content-theme='d'
       data-iconpos='right' data-collapsed-icon='arrow-l' data-expanded-icon='arrow-d'>
-      <div data-role='collapsible'>
-        <h4>Third Party Code Licenses</h4>
-        <p><b>Rocket Science</b> uses unmodified independent code
-        libraries provided by <em>third parties</em>.
-        Since their licenses might vary the corresponding information is
-        <em>externally linked</em> below. Thus <em>these external links</em>
-        will enable you to reproduce any copyright notice,
-        any related list of conditions, disclaimers, and especially
-        the copyright holders and authors of the corresponding third
-        party functionality.</p>
-        <a href='https://github.com/jquery/jquery' data-role='button' data-theme='c'
-          rel='external' target='_blank' type='text/html'
-          title='jQuery - Repository'>
-          <img src='thirdparty/jquery-favicon.ico' width='16' height='16' />
-          jQuery: MIT</a>
-        <a href='https://github.com/jquery/jquery-mobile' data-role='button' data-theme='c'
-          rel='external' target='_blank' type='text/html'
-          title='jQuery Mobile - Repository'>
-          <img src='thirdparty/jquery.mobile-1.4.5/demos/favicon.ico' width='16' height='16' />
-          jQuery Mobile: MIT</a>
-      </div><!-- collapsible -->
+    <div data-role='collapsible'>
+      <h4>Third Party Code Licenses</h4>
+      <p><b>Rocket Science</b> uses unmodified
+      independent code libraries provided by <em>third parties</em>.
+      Since their licenses might vary the corresponding information is
+      <em>externally linked</em> below. Thus <em>these external links</em>
+      will enable you to reproduce any copyright notice,
+      any related list of conditions, disclaimers, and especially
+      the copyright holders and authors of the corresponding third
+      party functionality.</p>
+      <a href='https://github.com/jquery/jquery' data-role='button' data-theme='c'
+        rel='external' target='_blank' type='text/html'
+        title='jQuery - Repository'>
+        <img src='thirdparty/jquery-favicon.ico' width='16' height='16' />
+        jQuery: MIT</a>
+      <a href='https://github.com/jquery/jquery-mobile' data-role='button' data-theme='c'
+        rel='external' target='_blank' type='text/html'
+        title='jQuery Mobile - Repository'>
+        <img src='thirdparty/jquery.mobile-1.4.5/demos/favicon.ico' width='16' height='16' />
+        jQuery Mobile: MIT</a>
+    </div><!-- collapsible -->
     </div><!-- collapsible-set -->
     <a href='#' data-role='button' data-icon='back'
       data-rel='back'>Back</a>
